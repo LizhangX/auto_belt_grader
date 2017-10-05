@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Login & Reg | Home</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--<link href="css/style.css" rel="stylesheet">-->
+    </head>
+    <body>
+        
+        {% for error in request.session.errors %}
+            <p>***{{error}}***</p>
+        {% endfor %}
+        
+            
+        <form action="/reg" method="post">
+            {% csrf_token %}
+            <h2>Registration</h2>
+            <label for="name">Name: </label>
+            <input type="text" name="name" value="">
+            <p></p>
+            <label for="email">Email: </label>
+            <input type="email" name="email" value="">
+            <p></p>
+            <label for="password">Password: </label>
+            <input type="password" name="password" value="">
+            <p></p>
+            <label for="confirm_pw">Confirm pw: </label>
+            <input type="password" name="confirm_pw" value="">
+            <p></p>
+            <input type="submit" name="" value="Register">
+        </form>
+
+        <form action="/login" method="post">
+            {% csrf_token %}
+
+            <label for="log_email">Email: </label>
+            <input type="email" name="log_email" value="">
+            <p></p>
+            <label for="log_pw">Password: </label>
+            <input type="password" name="log_pw" value="">
+            <p></p>
+            <input type="submit" name="" value="Login">            
+        </form>
+    </body>
+</html>
