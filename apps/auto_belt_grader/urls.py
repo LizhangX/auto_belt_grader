@@ -10,8 +10,8 @@ urlpatterns = [
     url(r'^reg$', views.reg),
     url(r'^logout$', views.logout),
     url(r'^upload$', views.upload),
-    url(r'^delete/(?P<upload_id>\d+)$', views.delete_upload)
-
+    url(r'^delete/(?P<upload_id>\d+)$', views.delete_upload),
+    url(r'^analyze/(?P<upload_id>\d+)$', views.analyze)
 ]
 
 if settings.DEBUG:

@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import User
 from .models import Belt
 import os
+import patoolib
 
 # Create your views here.
 def index(request):
@@ -67,3 +68,17 @@ def delete_upload(request, upload_id):
         os.remove("media/" + str(belt.upload))
         print "removed", belt.upload
     return redirect('/success')   
+
+def analyze(request, upload_id):
+    belt = Belt.objects.get(id=upload_id)  
+    print belt.upload
+    name = str(belt.upload) 
+    shortName = name[10:name.find('.')]
+    print "shortName", shortName
+    ### extract if it is a compressed file, otherwise flash errors
+    try:
+        patoolib.extract_archive("media/" + name, outdir="media/documents/{}".format(upload_id))
+    except patoolib.util.PatoolError:
+        print belt.upload, "is not a compressed file"
+    return redirect('/success')
+    

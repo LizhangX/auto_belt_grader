@@ -7,7 +7,7 @@
         <!--<link href="css/style.css" rel="stylesheet">-->
     </head>
     <body>
-        <h1>Success! Welcome, {{current_user.name}}!</h1>
+        <h1>Welcome, {{current_user.name}}!</h1>
         <p>Successfully {{request.session.status}} !</p>
         <a href="/logout"><button type="">Logout</button></a>
         <hr>
@@ -24,7 +24,9 @@
         
         {% for upload in uploads %}
             <ul>
-                <li>{{ upload.upload.name }} <a href="/delete/{{ upload.id }}">Delete</a></li>
+                <li>{{ upload.upload.name }}
+                    <a href="/analyze/{{ upload.id }}">Analyze</a>  
+                    <a href="/delete/{{ upload.id }}">Delete</a></li>
             </ul>  
         {% endfor %}
             

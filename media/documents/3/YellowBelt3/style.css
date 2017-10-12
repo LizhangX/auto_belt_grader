@@ -1,0 +1,208 @@
+*{
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+}
+
+
+#wrapper{
+    padding: 50px;
+    width: 970px;
+}
+
+header{
+    background: linear-gradient(white, lightgrey);
+    border: 1px outset lightgrey;
+    border-radius: 5px;
+}
+
+header img{
+    height: 58px;
+}
+
+header li{
+    font-weight: bold;
+    margin: 0px;
+    padding: 20px;
+    border-right: 1px ridge lightgray;
+}
+
+header img, header ul, header ul li, #searchBox, #searchBox input{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#searchBox img{
+    width: 20px;
+    height: 20px;
+}
+
+#searchBox input{
+    background-image: url(images/icon.png);
+    background-position: 5px 6px; 
+    background-size: 12px 12px;
+    background-repeat: no-repeat;
+    border-radius: 11px;
+    height: 20px;
+    margin-left: 4px;
+}
+
+#searchBox{
+    border-radius: 11px;
+    margin-left: 200px;
+    background-color: white;
+    border: 1px gray;
+}
+
+#topBox{
+    margin-top: 20px;
+    background: linear-gradient(white, lightgrey, #444744);
+    color: #8BB7D3;
+    border-radius: 10px;
+}
+
+#topBox ul li:first-child{
+    color: white;
+}
+
+#topBox img{
+    width: 970px;
+}
+
+#topBox ul, #topBox li{
+    display: inline-block
+}
+
+#topBox ul{
+    padding: 10px;
+    font-size: 0.8em;
+}
+
+#topBox li{
+    margin-left: 13px;
+}
+
+#middleBox{
+    border-radius: 5px;
+    background: linear-gradient(white, #F2F2F3,#F2F2D5);
+    margin-top: 20px;
+    border: 2px ridge lightgrey;
+}
+
+#firstBox{
+    padding: 20px;
+    border-bottom: 2px ridge lightgrey;
+}
+
+#firstBox h1, #btn1{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#firstBox h1{
+    color: lightgrey;
+    font-weight: 200;
+    padding-right: 30px;
+    border-right: 2px ridge lightgray;
+}
+
+#btn1{
+    font-size: 1em;
+    margin-left: 50px;
+    color: white;
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
+    /*border: 2px ridge blue;*/
+    background: linear-gradient(#4980DD, #4980A5)
+}
+
+#secondBox{
+    padding: 20px;
+}
+
+.Box{
+    display: inline-block;
+    vertical-align: top;
+    width: 201px;
+    padding-right: 20px;
+    border-right: 2px ridge lightgrey;
+    margin-left: 10px;
+}
+
+.Box:nth-child(4){
+    border-right: 0px;
+    margin-right: 0px;
+    padding-right: 0px;
+}
+
+.Box img, .Box h5{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.img2{
+    width: 200px;
+}
+
+.Box p{
+    margin-top: 20px;
+    font-size: 0.7em;
+    height: 50px;
+}
+
+.imgBox{
+    height: 151px;
+}
+
+.btn2{
+    color: white;
+    margin-top: 10px;
+    width: 200px;
+    display: block;
+    background: linear-gradient(#4980DD, #4980A5);
+    padding: 10px;
+    border-radius: 5px;
+
+}
+
+#playImg{
+    height: 24px;
+}
+
+#thirdBox{
+    border-top: 2px ridge lightgrey;
+    height: 60px;
+}
+
+.navlist{
+    margin-top: 40px;
+    display: inline-block;
+    vertical-align: top;
+    width: 141px;
+    padding-right: 20px;
+}
+
+.navlist h5{
+    padding: 20px 20px 20px 0;
+    border-bottom: 2px ridge lightgrey;
+}
+
+.navlist li{
+    font-weight: 590;
+    font-size: 0.7em;
+    margin: 10px 20px 0 0;
+    list-style: none;
+}
+
+.navlist:last-child{
+    padding:0px;
+}
+
+footer{
+    border-top: 2px ridge lightgrey;
+    margin-top: 20px;
+    padding: 20px 20px 20px 0;
+    font-size: 0.7em;
+}
