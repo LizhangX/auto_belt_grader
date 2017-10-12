@@ -54,3 +54,7 @@ class Belt(models.Model):
     user = models.ForeignKey(User, related_name="uploads")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        display = "upload: {}, user = {}".format(self.upload, self.user)
+        return display
