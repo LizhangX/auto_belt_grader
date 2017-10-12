@@ -9,7 +9,8 @@ urlpatterns = [
     url(r'^login$', views.login),
     url(r'^reg$', views.reg),
     url(r'^logout$', views.logout),
-    url(r'^upload$', views.upload)
+    url(r'^upload$', views.upload),
+    url(r'^delete/(?P<upload_id>\d+)$', views.delete_upload)
 
 ]
 

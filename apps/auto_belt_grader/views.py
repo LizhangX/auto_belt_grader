@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import User
 from .models import Belt
+import os
 
 # Create your views here.
 def index(request):
@@ -12,8 +13,10 @@ def success(request):
     if 'user_id' not in request.session:
         return redirect('/')
     user_id = request.session['user_id']
+    current_user = User.objects.get(id = user_id)
     context = {
-        'current_user': User.objects.get(id = user_id)
+        'current_user': current_user,
+        "uploads": Belt.objects.filter(user = current_user)
     }
     return render(request, 'login_registration_app/success.html', context)
 
@@ -56,3 +59,11 @@ def upload(request):
         user = User.objects.get(id = request.session['user_id'])
         belt = Belt.objects.create(user=user, upload=request.FILES['upload'])
         return redirect('/success')
+
+def delete_upload(request, upload_id):
+    belt = Belt.objects.get(id=upload_id)
+    belt.delete()
+    if os.path.isfile("media/" + str(belt.upload)):
+        os.remove("media/" + str(belt.upload))
+        print "removed", belt.upload
+    return redirect('/success')   

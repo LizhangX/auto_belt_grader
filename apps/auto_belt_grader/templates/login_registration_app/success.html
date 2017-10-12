@@ -10,7 +10,7 @@
         <h1>Success! Welcome, {{current_user.name}}!</h1>
         <p>Successfully {{request.session.status}} !</p>
         <a href="/logout"><button type="">Logout</button></a>
-
+        <hr>
         <form action="/upload" method="post" enctype="multipart/form-data">
             {% csrf_token %}            
             <label>Upload</label>
@@ -19,5 +19,14 @@
             <p></p>
             <input type="submit" value="Upload">
         </form>
+        <hr>
+        <h2>Your list of uploads</h2>
+        
+        {% for upload in uploads %}
+            <ul>
+                <li>{{ upload.upload.name }} <a href="/delete/{{ upload.id }}">Delete</a></li>
+            </ul>  
+        {% endfor %}
+            
     </body>
 </html>
