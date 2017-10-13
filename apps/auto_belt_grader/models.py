@@ -2,6 +2,8 @@ from __future__ import unicode_literals
 
 from django.db import models
 import re
+import os
+
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 # Create your models here.
 class UserManager(models.Manager):
@@ -54,6 +56,9 @@ class Belt(models.Model):
     user = models.ForeignKey(User, related_name="uploads")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    
+    def filename(self):
+        return os.path.basename(self.upload.name)
 
     def __str__(self):
         display = "upload: {}, user = {}".format(self.upload, self.user)

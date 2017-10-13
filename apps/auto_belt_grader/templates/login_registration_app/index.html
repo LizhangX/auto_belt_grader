@@ -9,13 +9,13 @@
     <body>
         
         {% for error in request.session.errors %}
-            <p>***{{error}}***</p>
+            <p style="color:red;">***{{error}}***</p>
         {% endfor %}
-        
+        <hr>
             
         <form action="/reg" method="post">
             {% csrf_token %}
-            <h2>Registration</h2>
+            <h1>Registration</h1>
             <label for="name">Name: </label>
             <input type="text" name="name" value="">
             <p></p>
@@ -30,10 +30,10 @@
             <p></p>
             <input type="submit" name="" value="Register">
         </form>
-
+        <hr>
         <form action="/login" method="post">
             {% csrf_token %}
-
+            <h1>Log in</h1>
             <label for="log_email">Email: </label>
             <input type="email" name="log_email" value="">
             <p></p>

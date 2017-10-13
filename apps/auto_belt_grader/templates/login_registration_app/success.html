@@ -8,13 +8,12 @@
     </head>
     <body>
         <h1>Welcome, {{current_user.name}}!</h1>
-        <p>Successfully {{request.session.status}} !</p>
+        <p>Successfully {{request.session.status}}</p>
         <a href="/logout"><button type="">Logout</button></a>
         <hr>
         <form action="/upload" method="post" enctype="multipart/form-data">
             {% csrf_token %}            
-            <label>Upload</label>
-            <p></p>
+            <h3>Upload The Belt</h3>
             <input type="file" name="upload">
             <p></p>
             <input type="submit" value="Upload">
@@ -24,7 +23,7 @@
         
         {% for upload in uploads %}
             <ul>
-                <li>{{ upload.upload.name }}
+                <li>{{ upload.filename }}
                     <a href="/analyze/{{ upload.id }}">Analyze</a>  
                     <a href="/delete/{{ upload.id }}">Delete</a></li>
             </ul>  

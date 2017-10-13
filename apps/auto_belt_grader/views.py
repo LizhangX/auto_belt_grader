@@ -2,8 +2,7 @@ from django.shortcuts import render, redirect
 from .models import User
 from .models import Belt
 import os
-import patoolib
-
+from . import grader
 # Create your views here.
 def index(request):
     if 'errors' not in request.session:
@@ -71,14 +70,12 @@ def delete_upload(request, upload_id):
 
 def analyze(request, upload_id):
     belt = Belt.objects.get(id=upload_id)  
-    print belt.upload
-    name = str(belt.upload) 
+    print belt.upload.name
+    name = str(belt.upload)
     shortName = name[10:name.find('.')]
-    print "shortName", shortName
-    ### extract if it is a compressed file, otherwise flash errors
-    try:
-        patoolib.extract_archive("media/" + name, outdir="media/documents/{}".format(upload_id))
-    except patoolib.util.PatoolError:
-        print belt.upload, "is not a compressed file"
+    # print "shortName", shortName
+    grader.unzip(name, upload_id)
+    grader.analyze(shortName, upload_id)
+
     return redirect('/success')
     
