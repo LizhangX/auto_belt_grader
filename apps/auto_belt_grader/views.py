@@ -3,6 +3,7 @@ from .models import User
 from .models import Belt
 import os
 from . import grader
+import shutil
 # Create your views here.
 def index(request):
     if 'errors' not in request.session:
@@ -66,7 +67,10 @@ def delete_upload(request, upload_id):
     if os.path.isfile("media/" + str(belt.upload)):
         os.remove("media/" + str(belt.upload))
         print "removed", belt.upload
-    return redirect('/success')   
+    if os.path.isdir("media/documents/" + str(upload_id)):
+        shutil.rmtree("media/documents/" + str(upload_id))
+        print "removed folder"
+    return redirect('/success')
 
 def analyze(request, upload_id):
     belt = Belt.objects.get(id=upload_id)  

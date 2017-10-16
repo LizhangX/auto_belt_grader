@@ -18,21 +18,20 @@ def analyze(shortName, upload_id):
     #using headless Chrome
     options  = webdriver.ChromeOptions()
     options.add_argument('headless')
-    options.add_argument('window-size=1200x1500')
+    options.add_argument('window-size=1200x1800')
     driver = webdriver.Chrome(chrome_options=options)
 
     #using PhantomJS
     # driver = webdriver.PhantomJS()
-    # # driver.set_window_position(0, 0)
     # driver.set_window_size(1620, 1080)
     # driver.get('https://google.com')
-    print "html name"
+    print "making screenshot"
     file =  glob.glob('media/documents/{}/{}/*.html'.format(upload_id, shortName))
-    filePath = 'file://' + os.getcwd() + "/" +file[0]
-    print filePath
-    # driver.get('https://google.com')
-    driver.get(filePath)
-    driver.save_screenshot('media/documents/screen.png')
+    if file[0]:
+        filePath = 'file://' + os.getcwd() + "/" +file[0]
+        print filePath
+        driver.get(filePath)
+        driver.save_screenshot('media/documents/{}/screen.png'.format(upload_id))
     driver.quit()
 
 
