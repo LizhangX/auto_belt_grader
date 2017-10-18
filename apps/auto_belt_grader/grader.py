@@ -31,11 +31,12 @@ def analyze(shortName, upload_id):
     file = glob.glob('media/documents/{}/{}/*.html'.format(upload_id, shortName))
     cssFile = glob.glob('media/documents/{}/{}/*.css'.format(upload_id, shortName))
 
-    if file[0]:
+    if file:
         filePath = 'file://' + os.getcwd() + "/" +file[0]
         driver.get(filePath)
         print "making screenshot of the html"
         driver.save_screenshot('media/documents/{}/screen.png'.format(upload_id))
+        
         
         ### - count the number of unique html errors: http://validator.w3.org/
         driver.get('https://validator.w3.org/#validate_by_upload')
@@ -52,7 +53,7 @@ def analyze(shortName, upload_id):
             # len(elements) number of errors in html validator
             messages.append("Has {} error(s) on HTML validator.".format(len(elements)))
         
-    if cssFile[0]:
+    if cssFile:
         ### - count the number of unique css errors: https://jigsaw.w3.org/css-validator/
         driver.get('https://jigsaw.w3.org/css-validator/#validate_by_upload')
         driver.find_element_by_id('file').send_keys(os.getcwd() + "/" + cssFile[0])
