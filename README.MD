@@ -1,6 +1,10 @@
 - unzip the belt
 - render the page as an image
 - count the number of unique html errors: http://validator.w3.org/
+
+### 8.5. How to upload files into file inputs ?
+- Select the <input type="file"> element and call the send_keys() method passing the file path, either the path relative to the test script, or an absolute path. Keep in mind the differences in path names between Windows and Unix systems.
+
 - count the number of unique css errors: https://jigsaw.w3.org/css-validator/
 - count the number of unique classes, and the number of ids
 - list the unique classes and ids used, for further inspection
