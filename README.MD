@@ -13,6 +13,9 @@
 
 - check to see if width, height, style, or align attributes are used inside of the HTML
 
-- check html indentation
+
+
 
 - count the number of times you encounter a div with only a single child (even if that child has grand-children)
+
+- check html indentation

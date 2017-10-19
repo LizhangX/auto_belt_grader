@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
     <head>
         <title>Login & Reg | Success</title>
@@ -26,17 +27,20 @@
             <li style="color:red;" {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
             {% endfor %}
         </ul>
+        <a href="{% static 'screen.png' %}">Screenshot of the rendered HTML</a>        
         {% endif %}
+        
 
         <h2>Your list of uploads</h2>
         <h3>(It would take a few seconds to analyze your file and a result message would appear above.)</h3>
-        {% for upload in uploads %}
-            <ul>
+        <ul>
+            {% for upload in uploads %}
                 <li>{{ upload.filename }}
                     <a href="/analyze/{{ upload.id }}">Analyze</a>  
-                    <a href="/delete/{{ upload.id }}">Delete</a></li>
-            </ul>  
-        {% endfor %}
+                    <a href="/delete/{{ upload.id }}">Delete</a>
+                </li>
+            {% endfor %}
+        </ul>  
             
     </body>
 </html>

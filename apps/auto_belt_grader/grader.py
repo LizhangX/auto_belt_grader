@@ -2,7 +2,7 @@ import patoolib
 from selenium import webdriver
 import glob
 import os
-
+from . import parser
 
 ### upzip all the zip file
 ### extract if it is a compressed file, otherwise flash errors
@@ -35,8 +35,14 @@ def analyze(shortName, upload_id):
         filePath = 'file://' + os.getcwd() + "/" +file[0]
         driver.get(filePath)
         print "making screenshot of the html"
-        driver.save_screenshot('media/documents/{}/screen.png'.format(upload_id))
+        driver.save_screenshot('apps/auto_belt_grader/static/screen.png'.format(upload_id))
         
+        ### parsing the html files
+        par = parser.parser(file[0])
+        for p in par:
+            messages.append(p)
+
+        messages.append('----')
         
         ### - count the number of unique html errors: http://validator.w3.org/
         driver.get('https://validator.w3.org/#validate_by_upload')
@@ -69,8 +75,7 @@ def analyze(shortName, upload_id):
             # len(elements) number of errors in html validator
             messages.append("Has {} error(s) on CSS validator.".format(len(elements)))
         
-        
-    driver.save_screenshot('media/documents/{}/test.png'.format(upload_id)) 
+    # driver.save_screenshot('media/documents/{}/test.png'.format(upload_id)) 
     driver.quit()
     return messages
 
