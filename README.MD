@@ -1,3 +1,6 @@
+# Auto Belt Grader
+## Automation for belt exams.
+
 - unzip the belt
 - render the page as an image
 - count the number of unique html errors: http://validator.w3.org/
