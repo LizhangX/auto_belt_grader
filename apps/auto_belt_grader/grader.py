@@ -40,9 +40,10 @@ def analyze(shortName, upload_id):
         ### parsing the html files
         par = parser.parser(file[0])
         for p in par:
+            messages.append('----------')
             messages.append(p)
 
-        messages.append('----')
+        messages.append('----------')
         
         ### - count the number of unique html errors: http://validator.w3.org/
         driver.get('https://validator.w3.org/#validate_by_upload')

@@ -85,7 +85,7 @@ def analyze(request, upload_id):
     grader.unzip(name, upload_id)
     # flash messages
     msgs = grader.analyze(shortName, upload_id)
-    messages.add_message(request, messages.INFO, "Scanned folder <<" + shortName + ">> : ")
+    messages.add_message(request, messages.INFO, "Scanned belt <<" + shortName + ">> : ")
     for message in msgs:
         messages.add_message(request, messages.INFO, message)
 
